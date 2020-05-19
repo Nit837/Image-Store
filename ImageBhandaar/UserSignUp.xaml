@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:Controls="clr-namespace:ImageBhandaar.Controls"
+             xmlns:VM="clr-namespace:ImageBhandaar.ViewModel"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ImageBhandaar.UserSignUp">
+    <ContentPage.BindingContext>
+        <VM:UserSignupVM></VM:UserSignupVM>
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="EntryStyle" TargetType="Entry">
+                <Setter Property="HeightRequest" Value="30"></Setter>
+                <Setter Property="Margin" Value="8,0,0,0"></Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <StackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="9.5*"></RowDefinition>
+                <RowDefinition  Height="0.1*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Image Grid.Row="0" Grid.RowSpan="5" Source="backgroundimag.jpg" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Aspect="AspectFill"></Image>
+            <ScrollView>
+                <Grid BackgroundColor="Transparent" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="60"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="60"/>
+                        <RowDefinition Height="60"/>
+                        <RowDefinition Height="60"/>
+                        <RowDefinition Height="60"/>
+                        <RowDefinition Height="60"/>
+                        <RowDefinition Height="60"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                            <ColumnDefinition Width="9*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0">
+                            <Image  Source="back.png" Margin="10,10,0,10" HorizontalOptions="Start" VerticalOptions="FillAndExpand" Aspect="AspectFill">
+                            </Image>
+                        </Grid>
+                    </Grid>
+                    <Label x:Name="lblsignup" Text="SIGN UP" Grid.Row="1" TextColor="White" FontAttributes="Bold" FontSize="30"  HorizontalTextAlignment="Center" HorizontalOptions="Center" VerticalOptions="Center" />
+                    <Frame Grid.Row="2" Margin="8" BackgroundColor="White" BorderColor="Gray" CornerRadius="12"
+                       HasShadow="false" Padding="10,1">
+                        <StackLayout BackgroundColor="Transparent" Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                                    <ColumnDefinition Width="9*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Image x:Name="imgUserName" Grid.Column="0" Source="user.png"  WidthRequest="20" HeightRequest="20" 
+                               Aspect="AspectFit" Margin="10,0,0,0"/>
+                                <Controls:CustomEntry x:Name="txtUserName"  Grid.Column="1" Placeholder="Username" IsEnabled="True" MaxLength="80" Text="{Binding UserName}" HorizontalOptions="FillAndExpand" BackgroundColor="Transparent"
+                               FontSize="Small" TextColor="Black" Style="{StaticResource EntryStyle}"/>
+                            </Grid>
+                        </StackLayout>
+                    </Frame>
+
+                    <Frame  Grid.Row="3" Margin="8" BackgroundColor="White" BorderColor="Gray" CornerRadius="12" HasShadow="false"
+                        Padding="4">
+                        <StackLayout Orientation="Horizontal">
+                            <Image x:Name="imgmobile" Source="Mobile.png" BackgroundColor="Transparent" WidthRequest="15" HeightRequest="15" 
+                               Aspect="AspectFit" Margin="10,0,0,0"/>
+                            <Entry x:Name="txtMobile" Placeholder="Mobile Number" IsEnabled="True" Text="{Binding MobileNo}" HorizontalOptions="FillAndExpand" MaxLength="10" BackgroundColor="Transparent" 
+                               FontSize="Small"  TextColor="Black" />
+                        </StackLayout>
+                    </Frame>
+                    <Frame Grid.Row="4" Margin="8" BackgroundColor="White" BorderColor="Gray" CornerRadius="12"
+                       HasShadow="false" Padding="4">
+                        <StackLayout Orientation="Horizontal">
+                            <Image x:Name="imgemail" Source="email.png" BackgroundColor="Transparent" WidthRequest="20" HeightRequest="20" 
+                               Aspect="AspectFit" Margin="10,0,0,0"/>
+                            <Entry x:Name="txtEmail" Placeholder="Email Id" MaxLength="80" IsEnabled="True" Text="{Binding Email}" HorizontalOptions="FillAndExpand" BackgroundColor="Transparent"
+                               FontSize="Small" TextColor="Black"/>
+                        </StackLayout>
+                    </Frame>
+                    <Frame Grid.Row="5" Margin="8" BackgroundColor="White" BorderColor="Gray" CornerRadius="12"
+                              HasShadow="false" Padding="4">
+                        <StackLayout Orientation="Horizontal">
+                            <Image x:Name="imgpass" Source="password.png"  WidthRequest="25" HeightRequest="25" 
+                                     Aspect="AspectFit" Margin="10,0,0,0"/>
+                            <Entry x:Name="txtpassword" Placeholder="Password" MaxLength="20" HorizontalOptions="FillAndExpand" Text="{Binding Password}" BackgroundColor="Transparent" 
+                                    FontSize="Small" IsPassword="True" TextColor="Black"/>
+                            <Label BackgroundColor="Gray" WidthRequest="1" VerticalOptions="Center" Margin="0,0,40,0"/>
+                            <Entry x:Name="txtconfirmpwd" Placeholder="Confirm Password" MaxLength="20" Text="{Binding ConfirmPassword}" HorizontalOptions="FillAndExpand" BackgroundColor="Transparent"
+                                     FontSize="Small" IsPassword="True" TextColor="Black"/>
+                        </StackLayout>
+                    </Frame>
+
+                    <Button  Text="Registration" x:Name="btnSignupRegister" Grid.Row="6"  BackgroundColor="#e75480" Margin="10" TextColor="White" CornerRadius="20"
+                        FontSize="Large" Command="{Binding RegistrationCommand}"/>
+                    <StackLayout Orientation="Horizontal" Grid.Row="7" HorizontalOptions="Center">
+                        <Label x:Name="lblaccount" TextColor="White" Text="Already have an account?">
+                        </Label>
+                        <Label x:Name="lblsignin" Text="SIGN IN" TextColor="#33BBA8"  HorizontalOptions="Start">
+                        </Label>
+                    </StackLayout>
+                </Grid>
+            </ScrollView>
+        </Grid>
+    </StackLayout>
+</ContentPage>

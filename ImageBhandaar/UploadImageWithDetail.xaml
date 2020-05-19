@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:ImageBhandaar.ViewModel"
+             xmlns:Controls="clr-namespace:ImageBhandaar.Controls"
+             mc:Ignorable="d"
+             x:Name="clickpic"
+             Title="Click Picture"
+             x:Class="ImageBhandaar.UploadImageWithDetail">
+    <!--<ContentPage.BindingContext>
+        <vm:UploadImagesVM></vm:UploadImagesVM>
+    </ContentPage.BindingContext>-->
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="EntryStyle" TargetType="Entry">
+                <Setter Property="HeightRequest" Value="40"></Setter>
+                <Setter Property="Margin" Value="5,0,0,0"></Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <AbsoluteLayout>
+                <StackLayout AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0.5,0.5,1,1">
+                    <ScrollView>
+                        <Grid RowSpacing="0"   BackgroundColor="Transparent">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="AUTO"/>
+                                <RowDefinition Height="AUTO"/>
+                                <RowDefinition Height="AUTO"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="AUTO"/>
+                            </Grid.RowDefinitions>
+                            <!--Header background-->
+                            <Image  x:Name="imgCoverPicture" HeightRequest="300" Aspect="AspectFill"/>
+                            <StackLayout Padding="10"  HorizontalOptions="EndAndExpand"  VerticalOptions="CenterAndExpand">
+                                <Frame CornerRadius="22" Padding="10"  BackgroundColor="White">
+                                    <Image Source="cameralogo.jpg" x:Name="imgbtnEditCoverPhoto" HeightRequest="30" WidthRequest="25" InputTransparent="False">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1"/>
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                </Frame>
+                            </StackLayout>
+                            <BoxView Grid.Row="1" BackgroundColor="Transparent"/>
+                            <!--Profile Name-->
+                            <StackLayout HorizontalOptions="Center" Grid.Row="2" Padding="0,10,0,0">
+                                <Label  x:Name="lblUserEmail"  TextColor="#0e0e0e" FontAttributes="Bold"/>
+                            </StackLayout>
+                            <StackLayout Grid.Row="3" Padding="15" BackgroundColor="Transparent" Spacing="10">
+                                <Frame   BackgroundColor="White" BorderColor="Gray" CornerRadius="20"
+                       HasShadow="false" Padding="10,1" Margin="8">
+                                    <StackLayout BackgroundColor="Transparent" Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="1*"></ColumnDefinition>
+                                                <ColumnDefinition Width="9*"></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+                                            <Image x:Name="imgUserName"  Grid.Column="0" Source="user.png"  WidthRequest="20" HeightRequest="20" 
+                               Aspect="AspectFit" Margin="10,0,0,0"/>
+                                            <Controls:CustomEntry x:Name="txtUserName"   Grid.Column="1" Placeholder="Username" IsEnabled="False" MaxLength="80" Text="{Binding Username}" HorizontalOptions="FillAndExpand" BackgroundColor="Transparent"
+                               FontSize="Small" TextColor="Black" Style="{StaticResource EntryStyle}"/>
+                                        </Grid>
+                                    </StackLayout>
+                                </Frame>
+                                <Frame   BackgroundColor="White" BorderColor="Gray" CornerRadius="20"
+                       HasShadow="false" Padding="10,1" Margin="8" >
+                                    <StackLayout BackgroundColor="Transparent" Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="1*"></ColumnDefinition>
+                                                <ColumnDefinition Width="9*"></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+                                            <Image  Grid.Column="0" Source="email.png"  WidthRequest="20" HeightRequest="20" 
+                               Aspect="AspectFit" Margin="10,0,0,0"/>
+                                            <Controls:CustomEntry x:Name="txtemail"  Grid.Column="1" Placeholder="Email Address" IsEnabled="False" MaxLength="80" Text="{Binding Email}" HorizontalOptions="FillAndExpand" BackgroundColor="Transparent"
+                               FontSize="Small" TextColor="Black" Style="{StaticResource EntryStyle}"/>
+                                        </Grid>
+                                    </StackLayout>
+                                </Frame>
+                                <Frame   BackgroundColor="White" BorderColor="Gray" CornerRadius="20"
+                       HasShadow="false" Padding="10,1" Margin="8">
+                                    <StackLayout BackgroundColor="Transparent" Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="1*"></ColumnDefinition>
+                                                <ColumnDefinition Width="9*"></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+                                            <Image  Grid.Column="0" Source="dob.png"  WidthRequest="20" HeightRequest="20" 
+                               Aspect="AspectFit" Margin="10,0,0,0"/>
+                                            <DatePicker x:Name="uploadeddate" Date="{Binding Uploadeddate}"  Grid.Column="1"  IsEnabled="True"  HorizontalOptions="FillAndExpand" BackgroundColor="Transparent"
+                               FontSize="Small" TextColor="Black"/>
+                                        </Grid>
+                                    </StackLayout>
+                                </Frame>
+                                <Frame   BackgroundColor="White" BorderColor="Gray" CornerRadius="20"
+                       HasShadow="false" Padding="10,1" Margin="8">
+                                    <StackLayout BackgroundColor="Transparent" Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="1*"></ColumnDefinition>
+                                                <ColumnDefinition Width="9*"></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+                                            <Image  Grid.Column="0" Source="cameralogo.jpg"  WidthRequest="20" HeightRequest="20" 
+                               Aspect="AspectFit" Margin="10,0,0,0"/>
+                                            <Controls:CustomEntry x:Name="txtpicturecategory"  Grid.Column="1" Placeholder="Picture Category" IsEnabled="True" MaxLength="80" Text="{Binding Uploadedpicturecategory}" HorizontalOptions="FillAndExpand" BackgroundColor="Transparent"
+                               FontSize="Small" TextColor="Black" Style="{StaticResource EntryStyle}"/>
+                                        </Grid>
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+                            <StackLayout Grid.Row="4" Padding="5" Margin="50" BackgroundColor="Transparent" AbsoluteLayout.LayoutBounds="0.4,0.9,1,100" AbsoluteLayout.LayoutFlags="XProportional,YProportional,WidthProportional">
+                                <Grid >
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Button  x:Name="btnpublish"  BackgroundColor="#f79c31" TextColor="White" Text="Publish Photo" FontAttributes="Bold" CornerRadius="22" WidthRequest="250" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Command="{Binding PublishPhotoCommand}"/>
+                                    <Button  x:Name="btncancel"  BackgroundColor="#777777" TextColor="White"  Text="Cancel" FontAttributes="Bold" Grid.Column="1" CornerRadius="22" WidthRequest="250" Clicked="Btncancel_Clicked" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" >
+                                    </Button>
+                                </Grid>
+                            </StackLayout>
+                        </Grid>
+                    </ScrollView>
+                </StackLayout>
+            </AbsoluteLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

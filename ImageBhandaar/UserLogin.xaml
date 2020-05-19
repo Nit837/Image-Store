@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:Controls="clr-namespace:ImageBhandaar.Controls"
+             xmlns:VM="clr-namespace:ImageBhandaar.ViewModel"
+             mc:Ignorable="d"
+             x:Name="login"
+             x:Class="ImageBhandaar.UserLogin">
+    <ContentPage.BindingContext>
+        <VM:UserLoginVM></VM:UserLoginVM>
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="EntryStyle" TargetType="Entry">
+                <Setter Property="HeightRequest" Value="40"></Setter>
+                <Setter Property="Margin" Value="5,0,0,0"></Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <StackLayout>
+        <Grid>
+            <AbsoluteLayout>
+                <StackLayout AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" >
+                    <Grid >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="9.5*"></RowDefinition>
+                            <RowDefinition  Height="0.1*"></RowDefinition>
+                        </Grid.RowDefinitions>
+
+
+                        <Image Grid.Row="0" Grid.RowSpan="3" Source="backgroundimag.jpg" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Aspect="AspectFill"></Image>
+                        <ScrollView >
+
+                            <Grid  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="10*"></RowDefinition>
+                                    <RowDefinition Height="110"></RowDefinition>
+                                    <RowDefinition Height="15*"></RowDefinition>
+                                    <RowDefinition Height="5*"></RowDefinition>
+                                    <RowDefinition Height="35*"></RowDefinition>
+                                    <RowDefinition Height="8*"></RowDefinition>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                    <RowDefinition Height="17*"></RowDefinition>
+                                    <RowDefinition Height="20"></RowDefinition>
+                                    <RowDefinition Height="20"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Image Grid.Row="1"  Source="logos.png"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Aspect="AspectFit"></Image>
+
+                                <Label x:Name="lblLabel" Grid.Row="2" Text="User Login" FontAttributes="Bold" TextColor="White" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                         HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="30"></Label>
+                                <Grid Grid.Row="4" Padding="20,0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="8*"></RowDefinition>
+                                        <RowDefinition Height="1*"></RowDefinition>
+                                        <RowDefinition Height="8*"></RowDefinition>
+                                        <RowDefinition Height="15*"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Frame Grid.Row="0" CornerRadius="12" Padding="10,1" BackgroundColor="White" HasShadow="False" BorderColor="Gray">
+                                        <StackLayout BackgroundColor="Transparent" Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                                                    <ColumnDefinition Width="9*"></ColumnDefinition>
+                                                </Grid.ColumnDefinitions>
+                                                <Image x:Name="imgUserImage" Grid.Column="0" Source="user.png"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" WidthRequest="25" HeightRequest="25"></Image>
+                                                <Controls:CustomEntry x:Name="txtUserName" Text="{Binding Email}" Grid.Column="1" FontSize="Small" MaxLength="80" Keyboard="Email" Placeholder="Email Address" BackgroundColor="Transparent" TextColor="Black"
+                                         HorizontalOptions="FillAndExpand" VerticalOptions="Center" Style="{StaticResource EntryStyle}" />
+                                            </Grid>
+                                        </StackLayout>
+                                    </Frame>
+                                    <Frame Grid.Row="2" CornerRadius="12" Padding="10,1" BackgroundColor="White" HasShadow="False" BorderColor="Gray">
+                                        <StackLayout BackgroundColor="Transparent" Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                                                    <ColumnDefinition Width="9*"></ColumnDefinition>
+                                                </Grid.ColumnDefinitions>
+                                                <Image x:Name="imgPassword" Grid.Column="0" Source="pass.png"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" HeightRequest="25" WidthRequest="25" ></Image>
+                                                <Controls:CustomEntry x:Name="txtPassword" Text="{Binding Password}" Grid.Column="1" FontSize="Small" MaxLength="20" IsPassword="true" Placeholder="Password"  BackgroundColor="Transparent" VerticalOptions="Center"  
+                                         HorizontalOptions="FillAndExpand" TextColor="Black" Style="{StaticResource EntryStyle}"/>
+                                            </Grid>
+                                        </StackLayout>
+                                    </Frame>
+                                    <Grid Grid.Row="3">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition  Height="*"></RowDefinition>
+                                            <RowDefinition  Height="*"></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"></ColumnDefinition>
+                                            <ColumnDefinition Width="*"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+
+                                        <Grid Grid.Column="1" Grid.RowSpan="2" >
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition  Height="4*"></RowDefinition>
+                                                <RowDefinition  Height="6*"></RowDefinition>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="100"></ColumnDefinition>
+                                                <ColumnDefinition Width="20"></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+
+                                            <Label Grid.Row="0" Grid.Column="0" Text="Keep Logged In" HorizontalTextAlignment="Start" FontSize="14" TextColor="Gray" HorizontalOptions="FillAndExpand"  VerticalOptions="FillAndExpand" VerticalTextAlignment="End"></Label>
+                                        </Grid>
+
+                                        <Grid Grid.Column="0" Grid.RowSpan="2" Margin="20,0,0,0">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition  Height="4*"></RowDefinition>
+                                                <RowDefinition  Height="6*"></RowDefinition>
+                                            </Grid.RowDefinitions>
+                                            <Label Grid.Row="0" Text="Forget Password ?" HorizontalTextAlignment="Start" FontSize="14" TextColor="#33BBA8" HorizontalOptions="FillAndExpand"  VerticalOptions="FillAndExpand" VerticalTextAlignment="End">
+                                            </Label>
+                                            <Grid Grid.Row="1">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="6*"></ColumnDefinition>
+                                                    <ColumnDefinition Width="6*"></ColumnDefinition>
+                                                </Grid.ColumnDefinitions>
+                                                <Label  Grid.ColumnSpan="2" Text="Need Help?" FontSize="14" TextColor="#33BBA8" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" VerticalOptions="FillAndExpand" VerticalTextAlignment="Start">
+                                                </Label>
+                                            </Grid>
+                                        </Grid>
+                                    </Grid>
+                                </Grid>
+                                <Button x:Name="btnLogin"  Grid.Row="5" Margin="20,0"  CornerRadius="20" Text="GET STARTED" FontSize="Medium" 
+                        TextColor="White" BackgroundColor="#e75480" Command="{Binding LoginCommand}"></Button>
+                                <StackLayout Orientation="Horizontal" Grid.Row="7" HorizontalOptions="CenterAndExpand" 
+                          VerticalOptions="CenterAndExpand"  Spacing="0">
+                                    <Label x:Name="lblAccount" Grid.Row="7" Text="Don't have an account? " TextColor="Gray" FontSize="15" Margin="0" />
+                                    <Label x:Name="lblSignup" Text="SIGN UP" TextColor="#33BBA8" Grid.Row="7" HorizontalOptions="Start">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1"/>
+                                        </Label.GestureRecognizers>
+                                    </Label>
+                                </StackLayout>
+                                <Label x:Name="lblCopyright" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Grid.Row="8" Text="Copyright @ Image Store And Videos." TextColor="Gray" FontSize="15" Margin="0" />
+                                <Label  HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalOptions="CenterAndExpand" Grid.Row="9" Text="All Rights Reserved." TextColor="Gray" FontSize="15" Margin="0" />
+                            </Grid>
+                        </ScrollView>
+                    </Grid>
+                </StackLayout>
+            </AbsoluteLayout>
+        </Grid>
+    </StackLayout>
+</ContentPage>

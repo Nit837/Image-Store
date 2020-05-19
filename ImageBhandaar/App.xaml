@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ImageBhandaar.App">
+    <Application.Resources>
+        <OnPlatform x:TypeArguments="x:String" x:Key="Neuton-SC-Light">
+
+            <On Platform="iOS" Value="Neuton-SC-Light"/>
+
+            <On Platform="Android" Value="Neuton-SC-Light.ttf#Neuton-SC-Light"/>
+
+        </OnPlatform>
+        <OnPlatform x:TypeArguments="x:String" x:Key="Symphony Script">
+            <On Platform="iOS" Value="Symphony"/>
+            <On Platform="Android" Value="SymphonyScript.ttf#Symphony Script"/>
+        </OnPlatform>
+        <Style x:Key="FloutItemStyle" TargetType="Grid">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal" />
+                        <VisualState x:Name="Selected">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value="#F87531"/>
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+    </Application.Resources>
+</Application>

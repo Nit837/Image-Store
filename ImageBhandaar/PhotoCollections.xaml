@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:views="clr-namespace:ImageBhandaar"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+       xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+       xmlns:ffTransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+       mc:Ignorable="d"
+             BackgroundColor="#F87531"
+             Title="Image Bhandaar"
+             x:Name="Shells"
+             x:Class="ImageBhandaar.PhotoCollections">
+    <Shell.FlyoutHeader>
+        <StackLayout Padding="0,10,0,0" BackgroundColor="#F87531">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                <ff:CachedImage
+                    x:Name="imgprofile"
+                Aspect="AspectFill"
+                HeightRequest="100"
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="Start"
+                WidthRequest="100">
+                    <ff:CachedImage.Transformations>
+                        <ffTransformations:CircleTransformation />
+                    </ff:CachedImage.Transformations>
+                    </ff:CachedImage>
+                <Image
+                Aspect="AspectFill"
+                HeightRequest="30"
+                HorizontalOptions="CenterAndExpand"
+                Source="edit.png"
+                VerticalOptions="Center"
+                WidthRequest="30">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1"/>
+                    </Image.GestureRecognizers>
+                    </Image>
+            </StackLayout>
+            <Label
+                x:Name="Name"
+               TextColor="White"
+               HorizontalOptions="Center"
+               HorizontalTextAlignment="Center"
+               FontAttributes="Bold"/>
+            <Label
+                x:Name="Email"
+               TextColor="White"
+               FontAttributes="Bold"
+                HorizontalOptions="Center"
+               HorizontalTextAlignment="Center"/>
+            <Label x:Name="mobileno"
+               TextColor="White"
+               FontAttributes="Bold"
+               HorizontalTextAlignment="Center"
+               VerticalOptions="Center"/>
+        </StackLayout>
+    </Shell.FlyoutHeader>
+    <!--<Shell.ItemTemplate>
+        <DataTemplate>
+            <Grid Style="{StaticResource FloutItemStyle}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.2*" />
+                        <ColumnDefinition Width="0.8*" />
+                    </Grid.ColumnDefinitions>
+                    <Image Source="edit.png" Margin="5" HeightRequest="25" />
+                    <Label Grid.Column="1" Text="Label" FontAttributes="Bold" VerticalTextAlignment="Start" />
+                </Grid>
+                <BoxView HeightRequest="1" BackgroundColor="Black" Grid.Row="1"/>
+            </Grid>
+        </DataTemplate>
+    </Shell.ItemTemplate>-->
+    <FlyoutItem Title="Recently Added">
+        <Tab Title="Recently Added">
+            <ShellContent Title="Recently Added" Shell.BackgroundColor="#F87531" ContentTemplate="{DataTemplate views:PhotocollectionbyType}"/>
+        </Tab>
+    </FlyoutItem>
+    <FlyoutItem Title="All Festive Collection">
+        <Tab Title="All Festive Collection">
+            <ShellContent Title="All Festive Collection" ContentTemplate="{DataTemplate views:FestivalSeason}"/>
+        </Tab>
+    </FlyoutItem>
+    <FlyoutItem Title="Party Collection">
+        <Tab Title="Party Collection">
+            <ShellContent Title="Party Collection" ContentTemplate="{DataTemplate views:PartyCollection}"/>
+        </Tab>
+    </FlyoutItem>
+    <FlyoutItem Title="Kids lifestyle">
+        <Tab Title="Kids lifestyle">
+            <ShellContent Title="Kids lifestyle" ContentTemplate="{DataTemplate views:KidsLifestyle}"/>
+        </Tab>
+    </FlyoutItem>
+    <FlyoutItem Title="Click New Picture">
+        <Tab Title="Click New Picture">
+            <ShellContent Title="Click New Picture" ContentTemplate="{DataTemplate views:UploadImageWithDetail}"/>
+        </Tab>
+    </FlyoutItem>
+    <FlyoutItem Title="Sign Out">
+        <Tab Title="Sign Out">
+            <ShellContent Title="Sign Out" ContentTemplate="{DataTemplate views:UserLogin}"/>
+        </Tab>
+    </FlyoutItem>
+</Shell>

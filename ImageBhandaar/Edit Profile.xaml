@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:Controls="clr-namespace:ImageBhandaar.Controls"
+             xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:ffTransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+             mc:Ignorable="d"
+             Title="Edit Profile"
+             x:Class="ImageBhandaar.Edit_Profile">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="EntryStyle" TargetType="Entry">
+                <Setter Property="HeightRequest" Value="40"></Setter>
+                <Setter Property="Margin" Value="5,0,0,0"></Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <AbsoluteLayout>
+                <StackLayout AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0.5,0.5,1,1">
+                    <ScrollView>
+                        <Grid RowSpacing="0"   BackgroundColor="#f4f5f8">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="AUTO"/>
+                                <RowDefinition Height="AUTO"/>
+                                <RowDefinition Height="AUTO"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="AUTO"/>
+                            </Grid.RowDefinitions>
+                            <Image Source="Profile_background.png" x:Name="imgCoverPhoto" Aspect="AspectFill"/>
+                            <StackLayout Padding="10"  HorizontalOptions="EndAndExpand"  VerticalOptions="CenterAndExpand">
+                                <Frame CornerRadius="22" Padding="10"  BackgroundColor="#ffffff">
+                                    <ImageButton Source="Camera_Icon.png" x:Name="imgbtnEditCoverPhoto" HeightRequest="25" WidthRequest="25" InputTransparent="False"/>
+                                </Frame>
+                            </StackLayout>
+                            <BoxView Grid.Row="1"  BackgroundColor="#f4f5f8"/>
+                            <StackLayout HorizontalOptions="Center" Grid.Row="2" Padding="0,10,0,0"  BackgroundColor="#f4f5f8">
+                                <Label  x:Name="lblUserEmail" TextColor="#0e0e0e" FontAttributes="Bold" />
+                            </StackLayout>
+                            <StackLayout Grid.Row="3" Padding="15" BackgroundColor="#f4f5f8" Spacing="10">
+                                <Frame   BackgroundColor="White" BorderColor="Gray" CornerRadius="20"
+                       HasShadow="false" Padding="10,1" Margin="8">
+                                    <StackLayout BackgroundColor="Transparent" Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="1*"></ColumnDefinition>
+                                                <ColumnDefinition Width="9*"></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+                                            <Image x:Name="imgUserName"  Grid.Column="0" Source="user.png"  WidthRequest="20" HeightRequest="20" 
+                               Aspect="AspectFit" Margin="10,0,0,0"/>
+                                            <Controls:CustomEntry x:Name="txtUserName"   Grid.Column="1" Placeholder="Username" IsEnabled="true" MaxLength="80"  HorizontalOptions="FillAndExpand" BackgroundColor="Transparent"
+                               FontSize="Small" TextColor="Black" Style="{StaticResource EntryStyle}"/>
+                                        </Grid>
+                                    </StackLayout>
+                                </Frame>
+                                <Frame   BackgroundColor="White" BorderColor="Gray" CornerRadius="20"
+                       HasShadow="false" Padding="10,1" Margin="8" >
+                                    <StackLayout BackgroundColor="Transparent" Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="1*"></ColumnDefinition>
+                                                <ColumnDefinition Width="9*"></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+                                            <Image  Grid.Column="0" Source="email.png"  WidthRequest="20" HeightRequest="20" 
+                               Aspect="AspectFit" Margin="10,0,0,0"/>
+                                            <Controls:CustomEntry x:Name="txtemail"  Grid.Column="1" Placeholder="Email Address" IsEnabled="False" MaxLength="80"  HorizontalOptions="FillAndExpand" BackgroundColor="Transparent"
+                               FontSize="Small" TextColor="Black" Style="{StaticResource EntryStyle}"/>
+                                        </Grid>
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+                            <StackLayout Grid.Row="4" Padding="5" BackgroundColor="#f4f5f8" AbsoluteLayout.LayoutBounds="0.4,0.9,1,100" AbsoluteLayout.LayoutFlags="XProportional,YProportional,WidthProportional">
+                                <Grid >
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Button  x:Name="btncancel"  BackgroundColor="#777777" TextColor="White" Text="Cancel" FontAttributes="Bold" CornerRadius="22" WidthRequest="250" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+                                    <Button  x:Name="btnupdate"  BackgroundColor="#f79c31" TextColor="White"  Text="Update" FontAttributes="Bold" Grid.Column="1" CornerRadius="22" WidthRequest="250" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Clicked="Btnupdate_Clicked"/>
+                                </Grid>
+                            </StackLayout>
+                            <ff:CachedImage  x:Name="imgUserProfile" HorizontalOptions="Center" VerticalOptions="End" WidthRequest="100" HeightRequest="100" TranslationY="50">
+                                <ff:CachedImage.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1"/>
+                                </ff:CachedImage.GestureRecognizers>
+                                <ff:CachedImage.Transformations>
+                                    <ffTransformations:CircleTransformation />
+                                </ff:CachedImage.Transformations>
+                                </ff:CachedImage>
+                        </Grid>
+                    </ScrollView>
+                </StackLayout>
+            </AbsoluteLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

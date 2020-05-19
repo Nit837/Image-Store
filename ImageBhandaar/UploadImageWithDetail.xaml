@@ -6,7 +6,6 @@
              xmlns:vm="clr-namespace:ImageBhandaar.ViewModel"
              xmlns:Controls="clr-namespace:ImageBhandaar.Controls"
              mc:Ignorable="d"
-             Visual="Material"
              x:Name="clickpic"
              Title="Click Picture"
              x:Class="ImageBhandaar.UploadImageWithDetail">

@@ -25,7 +25,6 @@
     <None Remove="redo.png" />
     <None Remove="rotate.png" />
     <None Remove="shareimg.png" />
-    <None Remove="Splash.jpg" />
     <None Remove="stayathome.png" />
     <None Remove="thumb.png" />
     <None Remove="ticon.png" />
@@ -49,7 +48,6 @@
     <EmbeddedResource Include="redo.png" />
     <EmbeddedResource Include="rotate.png" />
     <EmbeddedResource Include="shareimg.png" />
-    <EmbeddedResource Include="Splash.jpg" />
     <EmbeddedResource Include="stayathome.png" />
     <EmbeddedResource Include="thumb.png" />
     <EmbeddedResource Include="ticon.png" />

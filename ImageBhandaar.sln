@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageBhandaar.Android", "Im
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageBhandaar.iOS", "ImageBhandaar.iOS\ImageBhandaar.iOS.csproj", "{E18B0C72-071E-4517-B836-51024A534B4C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageBhandaar", "ImageBhandaar\ImageBhandaar.csproj", "{F103DE68-B1EC-4B1C-B2AA-4ED3D156E5AB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImageBhandaar", "ImageBhandaar\ImageBhandaar.csproj", "{F103DE68-B1EC-4B1C-B2AA-4ED3D156E5AB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -79,5 +79,6 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {86A79300-ED49-476E-AAA3-D26054E9CAD8}
+		VisualSVNWorkingCopyRoot = .svn
 	EndGlobalSection
 EndGlobal

@@ -117,8 +117,8 @@
                                         <ColumnDefinition Width="*"/>
                                         <ColumnDefinition Width="*"/>
                                     </Grid.ColumnDefinitions>
-                                    <Button  x:Name="btnpublish" Visual="Material" BackgroundColor="#f79c31" TextColor="White" Text="Publish Photo" FontAttributes="Bold" CornerRadius="22" WidthRequest="250" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Command="{Binding PublishPhotoCommand}"/>
-                                    <Button  x:Name="btncancel" Visual="Material" BackgroundColor="#777777" TextColor="White"  Text="Cancel" FontAttributes="Bold" Grid.Column="1" CornerRadius="22" WidthRequest="250" Clicked="Btncancel_Clicked" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" >
+                                    <Button  x:Name="btnpublish"  BackgroundColor="#f79c31" TextColor="White" Text="Publish Photo" FontAttributes="Bold" CornerRadius="22" WidthRequest="250" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Command="{Binding PublishPhotoCommand}"/>
+                                    <Button  x:Name="btncancel"  BackgroundColor="#777777" TextColor="White"  Text="Cancel" FontAttributes="Bold" Grid.Column="1" CornerRadius="22" WidthRequest="250" Clicked="Btncancel_Clicked" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" >
                                     </Button>
                                 </Grid>
                             </StackLayout>

@@ -121,7 +121,8 @@ namespace ImageBhandaar.ViewModel
                         if (DateTime.Now <= items.SubscriptionExpirationDate)
                         {
                             UserDialogs.Instance.HideLoading();
-                            await App.Current.MainPage.DisplayAlert("Image Store", "Your trial period will be expire soon Buy Now.", "OK");
+                            await App.Current.MainPage.DisplayAlert("Image Store", "Your trial period will be expire On."+items.SubscriptionExpirationDate, "OK");
+                            DownloadFile(obj.ImageUrl);
                         }
                         else
                         {
@@ -135,14 +136,15 @@ namespace ImageBhandaar.ViewModel
                 if (counter == 0)
                 {
                     UserDialogs.Instance.HideLoading();
-                    var ans = await App.Current.MainPage.DisplayAlert("Image Store", "Charges will be apply after 30 days trial.", "OK", "Cancel");
-                    if (ans)
-                    {
-                        DownloadFile(obj.ImageUrl);
-                        updateModels(obj.ImageUrl);
-                    }
-                    else
-                        return;
+                    await App.Current.MainPage.Navigation.PushPopupAsync(new BuyNowPopup(obj.ImageUrl), true);
+                    //var ans = await App.Current.MainPage.DisplayAlert("Image Store", "Charges will be apply after 30 days trial.", "OK", "Cancel");
+                    //if (ans)
+                    //{
+                    //    DownloadFile(obj.ImageUrl);
+                    //    updateModels(obj.ImageUrl);
+                    //}
+                    //else
+                    //    return;
                 }
             }
             else

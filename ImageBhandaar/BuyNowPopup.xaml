@@ -27,7 +27,7 @@
                     <StackLayout>
                         <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                             <Image x:Name="imgtobuys" Aspect="AspectFill" HeightRequest="200"/>
-                            <Button Text="Download(3.45 Rs/-)" TextColor="Black"></Button>
+                            <Button Text="Download(4.45 Rs/-)" TextColor="Black" Clicked="Button_Clicked"></Button>
                         </StackLayout>
                     </StackLayout>
                 </ScrollView>

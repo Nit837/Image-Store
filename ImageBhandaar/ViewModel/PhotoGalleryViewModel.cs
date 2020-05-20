@@ -118,7 +118,7 @@ namespace ImageBhandaar.ViewModel
                     if (obj.ImageUrl == items.Imageurl)
                     {
                         counter = counter + 1;
-                        if (DateTime.Now<=items.SubscriptionExpirationDate)
+                        if (DateTime.Now <= items.SubscriptionExpirationDate)
                         {
                             UserDialogs.Instance.HideLoading();
                             await App.Current.MainPage.DisplayAlert("Image Store", "Your trial period will be expire soon Buy Now.", "OK");
@@ -129,6 +129,8 @@ namespace ImageBhandaar.ViewModel
                             await App.Current.MainPage.Navigation.PushPopupAsync(new BuyNowPopup(obj.ImageUrl), true);
                         }
                     }
+                    else
+                        counter = 0;
                 }
                 if (counter == 0)
                 {
@@ -238,7 +240,6 @@ namespace ImageBhandaar.ViewModel
                 }
                 UserDialogs.Instance.HideLoading();
                 PhotoList = new ObservableCollection<UploadImage>(ImgSource);
-                MaximumItemCount = PhotoList.Count;
             }
             else
             {

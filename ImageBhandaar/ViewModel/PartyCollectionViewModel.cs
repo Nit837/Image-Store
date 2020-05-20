@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -37,7 +38,7 @@ namespace ImageBhandaar.ViewModel
         #endregion
         public ICommand DownloadImageCommand => new Command<PhotogalleryModel>(OnDownloadImageCommand);
         public ICommand ShareImageCommand => new Command<PhotogalleryModel>(OnShareImageCommand);
-        public void GetCollection()
+        public async void GetCollection()
         {
             PartyCollec.Add(new PhotogalleryModel()
             {

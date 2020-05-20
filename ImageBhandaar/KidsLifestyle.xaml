@@ -15,14 +15,14 @@
     <CollectionView x:Name="kidscollection" ItemsSource="{Binding KidsLifeStyleList}"  BackgroundColor="#f4f5f8" SelectionMode="None">
         <CollectionView.ItemTemplate>
             <DataTemplate>
-                <Frame  Padding="0"  Margin="0,0,0,0" HasShadow="False" CornerRadius="15"  WidthRequest="300" HeightRequest="300" BorderColor="LightGray" BackgroundColor="White">
+                <Frame  Padding="0"  Margin="0,0,0,0" HasShadow="False" CornerRadius="15"  WidthRequest="200" HeightRequest="250" BorderColor="LightGray" BackgroundColor="White">
                     <Grid  BackgroundColor="#ffffff" x:Name="gridRunningTrip">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="75"/>
                         </Grid.RowDefinitions>
                         <Frame Grid.Row="0" IsClippedToBounds="True" CornerRadius="15" Padding="0" HasShadow="False"  HorizontalOptions="FillAndExpand" BorderColor="LightGray" BackgroundColor="Black">
-                            <Image Source="{Binding ImageUrl}"  Aspect="AspectFill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Green" Opacity="0.5"/>
+                            <Image Source="{Binding ImageUrl}"  Aspect="AspectFill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  Opacity="0.5"/>
                         </Frame>
 
                         <Frame Grid.Row="1" Padding="0">

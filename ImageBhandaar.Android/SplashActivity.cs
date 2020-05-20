@@ -9,6 +9,8 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Xamarin.Essentials;
+using Xamarin.Forms;
 
 namespace ImageBhandaar.Droid
 {
@@ -37,8 +39,20 @@ namespace ImageBhandaar.Droid
         // Simulates background work that happens behind the splash screen
         async void SimulateStartup()
         {
-            await Task.Delay(2000); // Simulate a bit of startup work.
-            StartActivity(new Intent(Application.Context, typeof(MainActivity)));
+            var currentconnection= Connectivity.NetworkAccess;
+            if (currentconnection == NetworkAccess.Internet)
+            {
+                await Task.Delay(2000); // Simulate a bit of startup work.
+                StartActivity(new Intent(Android.App.Application.Context, typeof(MainActivity)));
+            }
+            else if (currentconnection == NetworkAccess.Local)
+            {
+                return;
+            }
+            else
+            {
+                return;
+            }
         }
     }
 }
